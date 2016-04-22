@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.cornelious.busbooking.Interfaces.employee.IEmployeeRepository;
 import com.example.cornelious.busbooking.config.DatabaseConfig;
@@ -19,7 +20,7 @@ import java.util.Set;
  * Created by Cornelious on 4/13/2016.
  */
 public class EmployeeRepoImpl extends SQLiteOpenHelper implements IEmployeeRepository {
-    private Employee objSearchValues;
+
     public static final String TABLE_NAME="employees";
     private SQLiteDatabase db;
 
@@ -159,7 +160,7 @@ public  EmployeeRepoImpl(Context context){
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Cursor cursor = db.query(TABLE_NAME,null,null,null,null,null,null,null);
+        Cursor cursor = db.query(TABLE_NAME,null,null,null,null,null,null);
         if (cursor.moveToFirst()){
             do {
                 final EmpAddressVO address = new EmpAddressVO.AddressBuilder()
@@ -201,6 +202,13 @@ public  EmployeeRepoImpl(Context context){
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        Log.w(this.getClass().getName(),
+                "Upgrading database from version " + oldVersion + " to "
+                        + newVersion + ", which will destroy all old data");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+
 
     }
 }
