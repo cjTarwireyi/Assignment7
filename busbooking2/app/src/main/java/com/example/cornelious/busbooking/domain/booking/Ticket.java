@@ -4,7 +4,7 @@ package com.example.cornelious.busbooking.domain.booking;
  * Created by Cornelious on 4/16/2016.
  */
 public class Ticket {
-    private int ticketNum;
+    private Long ticketNum;
     private  String ticketType;
     private String route;
     private double cost;
@@ -16,7 +16,7 @@ public class Ticket {
         this.cost=objBuilder.cost;
     }
 
-    public int getTicketNum() {
+    public Long getTicketNum() {
         return ticketNum;
     }
 
@@ -33,11 +33,11 @@ public class Ticket {
     }
     public static class TicketBuilder
     {
-        private int ticketNum;
+        private Long ticketNum;
         private  String ticketType;
         private String route;
         private double cost;
-        public TicketBuilder ticketNumber(int tickrtNumber)
+        public TicketBuilder ticketNumber(Long tickrtNumber)
         {
             this.ticketNum=tickrtNumber;
             return this;

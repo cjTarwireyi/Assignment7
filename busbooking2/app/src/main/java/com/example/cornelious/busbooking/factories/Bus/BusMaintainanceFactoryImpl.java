@@ -17,8 +17,9 @@ private BusMaintainanceFactoryImpl objMaintainanceFactory=null;
 
 
     @Override
-    public Maintainance createMaintainance(String maintainanceCode,String descrition, double cost) {
+    public Maintainance createMaintainance(Long id,String maintainanceCode,String descrition, double cost) {
         Maintainance objMaintainance = new Maintainance.BuildMaintainance()
+                .id(id)
                 .code(maintainanceCode)
                 .Description(descrition)
                 .cost(cost)

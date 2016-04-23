@@ -7,5 +7,5 @@ import com.example.cornelious.busbooking.domain.booking.Ticket;
  */
 public interface ITicketFactory {
 
-    Ticket createTicket(int ticketNum, String ticketType, String route, double cost);
+    Ticket createTicket(Long ticketNum, String ticketType, String route, double cost);
 }

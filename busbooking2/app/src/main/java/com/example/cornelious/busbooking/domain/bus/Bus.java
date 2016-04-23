@@ -5,17 +5,24 @@ package com.example.cornelious.busbooking.domain.bus;
  */
 public class Bus {
 
+    private Long busNumber;
     private String numberPlate;
     private int numberOfSeats;
 
 
     public  Bus(BusBuilder objBusBuilder)
     {
+        this.busNumber=objBusBuilder.busNumber;
         this.numberPlate=objBusBuilder.numberPlate;
         this.numberOfSeats=objBusBuilder.numberOfseats;
 
     }
-     public String getNumberPlate() {
+
+    public Long getBusNumber() {
+        return busNumber;
+    }
+
+    public String getNumberPlate() {
         return numberPlate;
     }
 
@@ -24,9 +31,15 @@ public class Bus {
     }
     public static class BusBuilder
     {
+        private Long busNumber;
         private String numberPlate;
         private int numberOfseats;
 
+        public BusBuilder busNumber(Long busNumber)
+        {
+            this.busNumber=busNumber;
+                    return this;
+        }
         public BusBuilder getnumberPlate(String numberPlate)
         {
             this.numberPlate=numberPlate;
@@ -40,6 +53,7 @@ public class Bus {
 
         public BusBuilder copy(Bus objBus)
         {
+            this.busNumber=objBus.busNumber;
             this.numberPlate=objBus.numberPlate;
             this.numberOfseats=objBus.numberOfSeats;
             return this;

@@ -21,7 +21,7 @@ public class TestEmployeeRepo extends AndroidTestCase{
     private Long empNum;
     private IEmployeeRepository employeeRepository;
 
-    public void testAddUpdateRemove(){
+    public void testAddFindREmoveEdit(){
         employeeRepository = new EmployeeRepoImpl(this.getContext());
         //CREATING EMPLOYEE
         EmpAddressVO address = new EmpAddressVO.AddressBuilder()

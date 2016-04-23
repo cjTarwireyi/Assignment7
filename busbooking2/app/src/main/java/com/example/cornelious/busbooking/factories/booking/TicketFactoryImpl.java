@@ -15,7 +15,7 @@ public class TicketFactoryImpl implements ITicketFactory {
         return objTicketFactory;
     }
     @Override
-    public Ticket createTicket(int ticketNum, String ticketType, String route, double cost) {
+    public Ticket createTicket(Long ticketNum, String ticketType, String route, double cost) {
         Ticket objTicket = new Ticket.TicketBuilder()
                 .ticketNumber(ticketNum)
                 .ticketType(ticketType)
